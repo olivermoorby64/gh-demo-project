@@ -1,5 +1,5 @@
 name: Events Demo 1
-on:
+on: # Actions can be dodged using "git commit -m "commit message" [skip actions]"
   pull_request: # Opening a pull request in one of the branches:
     types: opened
     branches:
