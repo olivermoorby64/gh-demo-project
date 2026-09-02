@@ -1,8 +1,20 @@
 name: Events Demo 1
 on:
-  pull_request:
+  pull_request: # Opening a pull request in one of the branches:
     types: opened
-  workflow_dispatch:
+    branches:
+      - main
+      - 'dev-*'
+      - 'feat/**'
+  workflow_dispatch: # Manual trigger
+  push: # When one of these branches has a push but does not change a workflow file
+    branches:
+      - main
+      - 'dev-*'
+      - 'feat/**'
+    paths-ignore:
+       - '.github/workflows/*'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
